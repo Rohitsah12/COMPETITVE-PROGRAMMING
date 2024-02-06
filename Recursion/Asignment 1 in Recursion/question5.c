@@ -13,4 +13,4 @@ int main(){
     int x=modular_exponentiation(n,p,q);
     printf("%d",x);
     return 0;
-}
+}   
