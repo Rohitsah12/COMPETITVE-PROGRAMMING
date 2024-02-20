@@ -15,4 +15,5 @@ def inc(findmax(A)):
     high=findMax(A)
     while(low<=high):
         if(A[mid]==target):
+            Swap
             
