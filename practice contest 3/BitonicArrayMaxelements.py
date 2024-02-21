@@ -10,5 +10,5 @@ def maxelementinbitonicarray(A):
         else:
             high=mid-1
     return mid
-A=[1,4,10,8,6,2]
+A=[1,2,3,4,5,6,7,4,2,1]
 print(maxelementinbitonicarray(A))
