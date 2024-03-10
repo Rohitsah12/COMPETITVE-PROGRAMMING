@@ -11,7 +11,7 @@ int modularExponentiation(int a, int b, int m) {
             result = (result * a) % m;
 
       
-        b = b >> 1; // b = b / 2
+        b = b >> 1; 
         a = (a * a) % m;
     }
     return result;
