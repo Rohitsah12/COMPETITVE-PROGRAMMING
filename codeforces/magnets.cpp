@@ -8,7 +8,7 @@ int countGroups(int n, const vector<string>& magnets) {
     int groups = 1;  // Initialize groups count to 1, as there's at least one group with the first magnet
     for (int i = 1; i < n; ++i) {
         if (magnets[i] != magnets[i - 1]) {  // If current magnet's polarity is different from the previous one
-            groups++;  // Increment the groups count
+            groups++;  
         }
     }
     return groups;
@@ -23,10 +23,8 @@ int main() {
         cin >> magnets[i];
     }
 
-    // Count groups
     int result = countGroups(n, magnets);
 
-    // Output the result
     cout << result << endl;
 
     return 0;
