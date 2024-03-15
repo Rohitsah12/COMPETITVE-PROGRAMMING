@@ -1,12 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
+#include<bits/stdc++.h>
 using namespace std;
 
 int countGroups(int n, const vector<string>& magnets) {
-    int groups = 1;  
-        if (magnets[i] != magnets[i - 1]) {
+    int groups = 1;  // Initialize groups count to 1, as there's at least one group with the first magnet
+    for (int i = 1; i < n; ++i) {
+        if (magnets[i] != magnets[i - 1]) {  // If current magnet's polarity is different from the previous one
             groups++;  
         }
     }
