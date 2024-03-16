@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-
+#include<bits/stdc++.h>
 std::vector<int> find_gift_givers(int n, const std::vector<int>& gifts) {
     std::vector<int> givers(n, 0);  // Initialize array to store gift givers
 
@@ -33,7 +31,6 @@ int main() {
 
     std::vector<int> result = find_gift_givers(n, gifts);
 
-    // Print result
     for (int i = 0; i < n; ++i) {
         std::cout << result[i] << " ";
     }
