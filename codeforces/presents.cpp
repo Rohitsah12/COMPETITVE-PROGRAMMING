@@ -10,7 +10,7 @@ std::vector<int> find_gift_givers(int n, const std::vector<int>& gifts) {
             if (current == friendIdx) {  
                 givers[friendIdx - 1] = friendIdx;
                 break;
-            } else if (gifts[current - 1] == friendIdx) {  // If friend found who gave the gift
+            } else if (gifts[current - 1] == friendIdx) {  
                 givers[friendIdx - 1] = current;
                 break;
             }
