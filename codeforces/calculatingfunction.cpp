@@ -16,7 +16,7 @@ int main() {
     // Calculate f(n)
     long long result = calculate_f(n);
 
-    // Output
+
     std::cout << result << std::endl;
 
     return 0;
