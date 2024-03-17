@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 long long calculate_f(long long n) {
     if (n % 2 == 0) {
