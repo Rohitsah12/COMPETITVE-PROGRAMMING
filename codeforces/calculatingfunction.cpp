@@ -12,8 +12,6 @@ int main() {
     // Input
     long long n;
     std::cin >> n;
-
-    // Calculate f(n)
     long long result = calculate_f(n);
 
 
