@@ -17,13 +17,10 @@ int main() {
         if (num1[i] != num2[i]) {
             result += '1';
         }
-        // Otherwise, append '0' to the result
         else {
             result += '0';
         }
     }
-
-    // Output the result
     cout << result << endl;
 
     return 0;
