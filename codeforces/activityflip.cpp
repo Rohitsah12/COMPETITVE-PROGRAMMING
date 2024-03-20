@@ -13,8 +13,6 @@ int main() {
     }
 
     sort(columns.begin(), columns.end());
-
-    // Output the sorted columns
     for (int i = 0; i < n; ++i) {
         cout << columns[i] << " ";
     }
