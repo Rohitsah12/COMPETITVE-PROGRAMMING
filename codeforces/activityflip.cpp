@@ -5,7 +5,6 @@
 using namespace std;
 
 int main() {
-    // Read input
     int n;
     cin >> n;
     vector<int> columns(n);
@@ -13,7 +12,6 @@ int main() {
         cin >> columns[i];
     }
 
-    // Sort the columns
     sort(columns.begin(), columns.end());
 
     // Output the sorted columns
