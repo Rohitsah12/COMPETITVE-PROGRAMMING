@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 string will_produce_output(string program) {
     for (char ch : program) {
         if (ch == 'H' || ch == 'Q' || ch == '9') {
@@ -9,7 +8,6 @@ string will_produce_output(string program) {
     }
     return "NO";
 }
-
 int main() {
     string program;
     cin >> program;
