@@ -11,11 +11,6 @@ def convert_to_12_hour_format(time):
         hour -= 12
         return f"{hour:02d}:{minute:02d} PM"
 t = int(input().strip())
-
-# Iterate through each test case
 for _ in range(t):
-    # Read the time in 24-hour format
     time = input().strip()
-    
-    # Convert to 12-hour format and print the result
     print(convert_to_12_hour_format(time))
