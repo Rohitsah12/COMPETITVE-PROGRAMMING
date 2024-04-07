@@ -10,8 +10,6 @@ def convert_to_12_hour_format(time):
     else:
         hour -= 12
         return f"{hour:02d}:{minute:02d} PM"
-
-# Read the number of test cases
 t = int(input().strip())
 
 # Iterate through each test case
