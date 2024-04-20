@@ -37,7 +37,6 @@ int main() {
                 current_streak_addy = 0;
             }
         }
-        
         if(max_streak_om > max_streak_addy) {
             cout<<"OM\n";
         } else if(max_streak_addy > max_streak_om) {
