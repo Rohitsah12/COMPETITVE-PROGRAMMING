@@ -17,8 +17,7 @@ int main() {
         
         int max_streak_om=0, max_streak_addy=0;
         int current_streak_om=0, current_streak_addy=0;
-        
-        // Calculate maximum streak for Om
+
         for(int i=0; i<n; i++){
             if(a[i] != 0) {
                 current_streak_om++;
