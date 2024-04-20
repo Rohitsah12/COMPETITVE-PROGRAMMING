@@ -38,7 +38,6 @@ int main() {
             }
         }
         
-        // Determine the winner or if it's a draw
         if(max_streak_om > max_streak_addy) {
             cout<<"OM\n";
         } else if(max_streak_addy > max_streak_om) {
