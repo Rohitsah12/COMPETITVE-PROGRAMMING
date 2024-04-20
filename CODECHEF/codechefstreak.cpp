@@ -27,8 +27,6 @@ int main() {
                 current_streak_om = 0;
             }
         }
-        
-        // Calculate maximum streak for Addy
         for(int i=0; i<n; i++){
             if(b[i] != 0) {
                 current_streak_addy++;
