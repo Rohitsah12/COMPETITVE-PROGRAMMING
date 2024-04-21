@@ -1,38 +1,29 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
-
-int maxPolygons(int n, vector<int>& sticks) {
-    sort(sticks.begin(), sticks.end(), greater<int>()); 
-    int polygons = 0;
-
-    for (int i = 0; i < n; ++i) {
-        if (sticks[i] >= i + 1) { 
-            polygons++;
-        } else {
-            break;
-        }
-    }
-
-    return polygons;
-}
 
 int main() {
     int t;
     cin >> t;
-
     while (t--) {
         int n;
         cin >> n;
-        vector<int> sticks(n);
+        vector<int> array(n);
+        unordered_map<int, int> freq;
 
-        for (int i = 0; i < n; ++i) {
-            cin >> sticks[i];
+        // Input stick lengths and count their occurrences
+        for (int i = 0; i < n; i++) {
+            cin >> array[i];
+            freq[array[i]]++;
         }
 
-        cout << maxPolygons(n, sticks) << endl;
-    }
+        int count_polygon = 0;
+        for (auto it = freq.begin(); it != freq.end(); it++) {
+            if (it->second >= 3) { // If a stick length occurs at least 3 times
+                count_polygon++;
+            }
+        }
 
+        cout << count_polygon << endl;
+    }
     return 0;
 }
