@@ -17,7 +17,6 @@ def checkmid(s,t,p,x):
     return False;
     }
 
-
 def findAns(s,t,p):
     low=0
     high=len(s)
