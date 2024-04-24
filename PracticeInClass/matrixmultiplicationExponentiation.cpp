@@ -1,6 +1,5 @@
 #include <vector>
 using namespace std;
-
 typedef vector<vector<int>> Matrix;
 Matrix matrix_multiply(const Matrix& A, const Matrix& B) {
     int n = A.size();
