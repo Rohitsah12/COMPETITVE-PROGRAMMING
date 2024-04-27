@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     int t;
     cin >> t;
-
+    //ROHIT KUMAR SAH
     while (t--) {
         int n;
         cin>>n;
