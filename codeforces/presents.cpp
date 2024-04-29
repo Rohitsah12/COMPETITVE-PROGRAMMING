@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 std::vector<int> find_gift_givers(int n, const std::vector<int>& gifts) {
     std::vector<int> givers(n, 0);
-
+//Rohit kumar sah
     for (int i = 0; i < n; ++i) {
         int friendIdx = i + 1;
         int current = friendIdx;
