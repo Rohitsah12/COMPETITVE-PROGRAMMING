@@ -15,7 +15,7 @@ bool is_binary_decimal(int num) {
 string can_be_product_of_binary_decimals(int n) {
     if (n == 1)
         return "YES";
-
+//Rohit kumar sah
     for (int i = 1; i * i <= n; ++i) {
         if (n % i == 0) {
             if (is_binary_decimal(i) && is_binary_decimal(n / i))
