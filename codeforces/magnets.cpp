@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+//rohit kumar sah
 int countGroups(int n, const vector<string>& magnets) {
     int groups = 1;  // Initialize groups count to 1, as there's at least one group with the first magnet
     for (int i = 1; i < n; ++i) {
