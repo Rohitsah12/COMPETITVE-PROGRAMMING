@@ -12,7 +12,6 @@ int minNewProblems(int n, vector<int>& a, vector<int>& b) {
     }
     return newProblems;
 }
-
 int main() {
     int t;
     cin >> t;
