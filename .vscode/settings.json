@@ -1,5 +1,6 @@
 {
   "files.associations": {
-    "CREDCOINS_539.C": "cpp"
+    "CREDCOINS_539.C": "cpp",
+    "iostream": "cpp"
   }
 }

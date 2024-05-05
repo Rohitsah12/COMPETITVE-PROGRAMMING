@@ -28,8 +28,6 @@ int main() {
             return 0;
         }
     }
-
-    
-    printf("YES\n");
+   printf("YES\n");
     return 0;
 }

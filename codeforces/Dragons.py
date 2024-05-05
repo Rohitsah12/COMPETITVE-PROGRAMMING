@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+#rohit kumar sah
 int main() {
     int s, n;
     cin >> s >> n;
