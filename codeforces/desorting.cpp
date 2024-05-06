@@ -22,12 +22,7 @@ int main() {
         int count=0;
         if(flg==false) cout<<0<<endl;
         else{
-            while(v[n-2]<=v[n-1]){
-                v[n-2]++;
-                v[n-1]--;
-                count++;
-            }
-            cout<<count<<endl;
+            cout<<(v[n-1]-v[n-2])/2+1<<endl;
         }
         
     }
