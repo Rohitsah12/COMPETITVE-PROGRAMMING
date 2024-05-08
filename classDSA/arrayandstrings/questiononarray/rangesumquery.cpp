@@ -4,7 +4,6 @@ using namespace std;
 class NumMatrix {
 private:
     vector<vector<int>> prefixSum;
-
 public:
     NumMatrix(vector<vector<int>>& matrix) {
         if (matrix.empty() || matrix[0].empty()) return;
