@@ -36,7 +36,52 @@ class Doublylinkedlist:
             self.__head.prev=Node(elem,None,self.__head)
             self.__head=self.__head.prev
         self.__size+=1
-        
+    def addAt(self,index,data):
+        if index < 0:
+            raise Exception("Out of bond")
+        if index > self.__size:
+            raise Exception("Out of bond")
+        if index == 0:
+            return self.addfirst(data)
+        if index==self.__size:
+            return self.append(data)
+        trav=self.__head
+        for _ in range(0,index-1):
+            trav=trav.next
+        newNode=Node(data,trav,trav.next)
+        trav.next.prev=newNode
+        trav.next=newNode
+        self.__size+=1
+    def peekfirst(self):
+        if self.isempty:
+            raise Exception('Element not present')
+        else:
+            return self.__head.data
+    def peeklast(self):
+        if self.isempty:
+            raise Exception('Element not present')
+        else:
+            return self.__tail.data
+    def removefirst(self):
+        if self.isempty():
+            raise Exception('empty list')
+
+        self.__head=self.__head.next
+        size-=1
+        if self.isEmpty() :
+            self.__tail = None
+        else :
+            self.__head.prev = None
+    
+    def removelast(self):
+        if self.isempty():
+            raise Exception('Empty list')
+        self.__tail=self.__tail.prev
+        size-=1
+        if self.isempty():
+            self.__head=None
+        else:
+            self.__tail.next=None
     
 l=Doublylinkedlist()
 print(len(l))
