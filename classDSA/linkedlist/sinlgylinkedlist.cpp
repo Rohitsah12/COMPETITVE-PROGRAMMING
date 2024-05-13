@@ -75,7 +75,17 @@ public:
         }
         return head->data;
     }
-    
+    int peekLast() const {
+    if (isEmpty()) {
+        throw std::logic_error("List is empty");
+    }
+    Node* curr = head;
+    while (curr->next != nullptr) {
+        curr = curr->next;
+    }
+    return curr->data;
+}
+
     void removeFirst() {
         if (isEmpty()) {
             throw std::logic_error("List is empty");
@@ -85,6 +95,27 @@ public:
         delete temp;
         size--;
     }
+    void removeLast() {
+    if (isEmpty()) {
+        throw std::logic_error("List is empty");
+    }
+    if (head->next == nullptr) {
+        delete head;
+        head = nullptr;
+        size = 0;
+        return;
+    }
+    Node* prev = nullptr;
+    Node* curr = head;
+    while (curr->next != nullptr) {
+        prev = curr;
+        curr = curr->next;
+    }
+    prev->next = nullptr;
+    delete curr;
+    size--;
+}
+
     
     void removeAt(int index) {
         if (index < 0 || index >= size) {
