@@ -28,4 +28,6 @@ class Stack:
         if(self.isempty()):
             raise Exception("stack underflow")
         return self.__head.__data
+    
+    
 
