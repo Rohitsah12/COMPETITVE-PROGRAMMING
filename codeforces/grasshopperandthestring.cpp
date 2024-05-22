@@ -1,12 +1,10 @@
 #include <bits/stdc++.h>
-typedef long long int ll;
 #define endl "\n"
 #define pb push_back
 #define all(x) (x).begin(), (x).end()
 const int inf = 1e9 + 10;
 const int M = 1e9 + 7;
 using namespace std;
-
 void solve() {
     string s;
     cin >> s;
