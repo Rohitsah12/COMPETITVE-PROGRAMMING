@@ -8,7 +8,7 @@ class DynamicArray:
     def __resize(self, new_capacity):
         self.data.extend([None] * (new_capacity - self.capacity))
         self.capacity = new_capacity
-
+    # inserting value at certain index
     def insert(self, index, value):
         if index > self.size or index < 0:
             raise IndexError("Index out of range")
@@ -16,44 +16,44 @@ class DynamicArray:
             self.__resize(int(self.capacity * self.resize_factor))
         self.data.insert(index, value)
         self.size += 1
-
+    #deleting value at certain index
     def delete(self, index):
         if index >= self.size or index < 0:
             raise IndexError("Index out of range")
         self.data.pop(index)
         self.size -= 1
-
+    #size of array
     def get_size(self):
         return self.size
-
+    #it will check array is empty or not
     def is_empty(self):
         return self.size == 0
-
+    #rotate array with k index
     def rotate_right(self, k):
         if self.size == 0:
             return
         k %= self.size
         self.data = self.data[-k:] + self.data[:-k]
-
+    # reverse the array
     def reverse(self):
         self.data = self.data[::-1]
-
+    # append the value at last
     def append(self, value):
         if self.size == self.capacity:
             self.__resize(int(self.capacity * self.resize_factor))
         self.data.append(value)
         self.size += 1
-
+    # insert value at 0th index
     def prepend(self, value):
         self.insert(0, value)
-
+    #merge two array
     def merge(self, other):
         while self.size + other.size > self.capacity:
             self.__resize(int(self.capacity * self.resize_factor))
         self.data.extend(other.data[:other.size])
         self.size += other.size
 
-
+    #interleave two array
     def interleave(self, other):
         result = DynamicArray()
         min_size = min(self.size, len(other))
@@ -65,18 +65,18 @@ class DynamicArray:
         for i in range(min_size, len(other)):
             result.append(other[i])
         return result
-
+    #middle of the array
     def middle(self):
         if self.is_empty():
             raise IndexError("Array is empty")
         return self.data[self.size // 2]
-
+    # index of certain value
     def index_of(self, value):
         try:
             return self.data.index(value)
         except ValueError:
             return -1
-
+    #split array on the basis of index
     def split(self, index):
         if index > self.size or index < 0:
             raise IndexError("Index out of range")
