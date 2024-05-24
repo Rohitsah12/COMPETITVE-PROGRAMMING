@@ -48,10 +48,11 @@ class DynamicArray:
         self.insert(0, value)
 
     def merge(self, other):
-        while self.size + len(other) > self.capacity:
+        while self.size + other.size > self.capacity:
             self.__resize(int(self.capacity * self.resize_factor))
-        self.data.extend(other)
-        self.size += len(other)
+        self.data.extend(other.data[:other.size])
+        self.size += other.size
+
 
     def interleave(self, other):
         result = DynamicArray()
