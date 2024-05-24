@@ -1,186 +1,135 @@
-#include <iostream>
-
-class Node {
-public:
-    int data;
-    Node* next;
-    
-    Node(int data, Node* next = nullptr) : data(data), next(next) {}
-};
+#include <bits/stdc++.h>
+using namespace std;
 
 class SinglyLinkedList {
 private:
-    int size;
-    Node* head;
-    
-public:
-    SinglyLinkedList() : size(0), head(nullptr) {}
-    
-    ~SinglyLinkedList() {
-        clear();
-    }
-    
-    int len() const {
-        return size;
-    }
-    
-    bool isEmpty() const {
-        return size == 0;
-    }
-    
-    void append(int data) {
-        if (isEmpty()) {
-            head = new Node(data);
-        } else {
-            Node* curr = head;
-            while (curr->next != nullptr) {
-                curr = curr->next;
-            }
-            curr->next = new Node(data);
-        }
-        size++;
-    }
-    
-    void addLast(int data) {
-        append(data);
-    }
-    
-    void addFirst(int data) {
-        Node* newNode = new Node(data);
-        newNode->next = head;
-        head = newNode;
-        size++;
-    }
-    
-    void addAt(int index, int data) {
-        if (index < 0 || index > size) {
-            throw std::out_of_range("Index out of range");
-        }
-        if (index == 0) {
-            addFirst(data);
-        } else {
-            Node* curr = head;
-            for (int i = 0; i < index - 1; i++) {
-                curr = curr->next;
-            }
-            Node* newNode = new Node(data, curr->next);
-            curr->next = newNode;
-            size++;
-        }
-    }
-    
-    int peekFirst() const {
-        if (isEmpty()) {
-            throw std::logic_error("List is empty");
-        }
-        return head->data;
-    }
-    int peekLast() const {
-    if (isEmpty()) {
-        throw std::logic_error("List is empty");
-    }
-    Node* curr = head;
-    while (curr->next != nullptr) {
-        curr = curr->next;
-    }
-    return curr->data;
-}
+    struct ListNode {
+        int val;
+        ListNode* next;
 
-    void removeFirst() {
-        if (isEmpty()) {
-            throw std::logic_error("List is empty");
+        ListNode(int x) : val(x), next(nullptr) {}
+    };
+
+    ListNode* head;
+    int size;
+
+public:
+    SinglyLinkedList() : head(nullptr), size(0) {}
+
+    void insertAt(int index, int val) {
+        if (index < 0 || index > size) return;
+
+        ListNode* newNode = new ListNode(val);
+        if (index == 0) {
+            newNode->next = head;
+            head = newNode;
+        } else {
+            ListNode* prev = getNode(index - 1);
+            newNode->next = prev->next;
+            prev->next = newNode;
         }
-        Node* temp = head;
-        head = head->next;
-        delete temp;
+        size++;
+    }
+
+    void deleteAt(int index) {
+        if (index < 0 || index >= size) return;
+
+        ListNode* toDelete;
+        if (index == 0) {
+            toDelete = head;
+            head = head->next;
+        } else {
+            ListNode* prev = getNode(index - 1);
+            toDelete = prev->next;
+            prev->next = toDelete->next;
+        }
+        delete toDelete;
         size--;
     }
-    void removeLast() {
-    if (isEmpty()) {
-        throw std::logic_error("List is empty");
-    }
-    if (head->next == nullptr) {
-        delete head;
-        head = nullptr;
-        size = 0;
-        return;
-    }
-    Node* prev = nullptr;
-    Node* curr = head;
-    while (curr->next != nullptr) {
-        prev = curr;
-        curr = curr->next;
-    }
-    prev->next = nullptr;
-    delete curr;
-    size--;
-}
 
-    
-    void removeAt(int index) {
-        if (index < 0 || index >= size) {
-            throw std::out_of_range("Index out of range");
-        }
-        if (index == 0) {
-            removeFirst();
-        } else {
-            Node* curr = head;
-            for (int i = 0; i < index - 1; i++) {
-                curr = curr->next;
-            }
-            Node* temp = curr->next;
-            curr->next = temp->next;
-            delete temp;
-            size--;
-        }
+    int getSize() {
+        return size;
     }
-    
-    int indexOf(int data) const {
-        Node* curr = head;
-        int index = 0;
+
+    bool isEmpty() {
+        return size == 0;
+    }
+
+    void rotateRight(int k) {
+        if (isEmpty() || k % size == 0) return;
+        k = k % size;
+
+        ListNode* tail = getNode(size - 1);
+        tail->next = head;
+
+        ListNode* newTail = getNode(size - k - 1);
+        head = newTail->next;
+        newTail->next = nullptr;
+    }
+
+    void reverse() {
+        ListNode* prev = nullptr;
+        ListNode* curr = head;
         while (curr != nullptr) {
-            if (curr->data == data) {
-                return index;
-            }
-            curr = curr->next;
-            index++;
+            ListNode* nextNode = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = nextNode;
         }
-        return -1;
+        head = prev;
     }
-    
-    bool contains(int data) const {
-        return indexOf(data) != -1;
+
+    void append(int val) {
+        insertAt(size, val);
     }
-    
-    void clear() {
-        while (!isEmpty()) {
-            removeFirst();
-        }
+
+    void prepend(int val) {
+        insertAt(0, val);
     }
-    
-    void printList() const {
-        Node* curr = head;
+
+    void printList() {
+        ListNode* curr = head;
         while (curr != nullptr) {
-            std::cout << curr->data << " ";
+            cout << curr->val << " -> ";
             curr = curr->next;
         }
-        std::cout << std::endl;
+        cout << "nullptr" << endl;
+    }
+
+private:
+    ListNode* getNode(int index) {
+        ListNode* curr = head;
+        for (int i = 0; i < index; ++i) {
+            curr = curr->next;
+        }
+        return curr;
     }
 };
 
 int main() {
-    SinglyLinkedList l;
-    l.append(5);
-    l.addLast(10);
-    l.addFirst(6);
-    l.addAt(1, 15);
-    
-    l.printList();
-    
-    std::cout << l.indexOf(10) << std::endl;
-    std::cout << l.contains(15) << std::endl;
-    std::cout << l.contains(19) << std::endl;
-    
-    l.clear();
+    SinglyLinkedList list;
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    list.append(4);
+    list.append(5);
+
+    list.printList();
+
+    cout <<list.getSize() << endl;
+    cout << list.isEmpty() << endl;
+
+    list.insertAt(2, 10);
+    list.printList();
+
+    list.deleteAt(3);
+    list.printList();
+
+    list.rotateRight(2);
+    list.printList();
+
+    list.reverse();
+    list.printList();
+
     return 0;
 }

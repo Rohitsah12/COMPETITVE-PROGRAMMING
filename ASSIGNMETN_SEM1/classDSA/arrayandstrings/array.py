@@ -95,7 +95,6 @@ class DynamicArray:
     def __str__(self):
         return str(self.data[:self.size])
 
-# Example usage
 arr = DynamicArray()
 arr.append(1)
 arr.append(2)
