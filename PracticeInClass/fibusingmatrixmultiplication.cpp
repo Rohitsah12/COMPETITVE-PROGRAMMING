@@ -20,7 +20,6 @@ vector<vector<int>> matrixmultiplication(vector<vector<int>>& matA, vector<vecto
     }
     return result;
 }
-
 vector<vector<int>> power(vector<vector<int>>& A, int n) {
     if (n == 0) {
         return {{1, 0}, {0, 1}};
