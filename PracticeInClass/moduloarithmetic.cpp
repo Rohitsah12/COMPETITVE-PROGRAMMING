@@ -11,12 +11,11 @@ int binpow(int base, int expo, int MOD) {
         return (temp * temp) % MOD;
     }
 }
-
 int inverse(int x){
     return binpow(x,(MOD-2),MOD);
 }
 signed main(){
-//a+b-c*d+e^f/7
+
 int a,b,c,d,e,f,g;
 cin>>a>>b>>c>>d>>e>>f;
     int temp1=(a+b)%MOD;
