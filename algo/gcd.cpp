@@ -6,7 +6,7 @@ typedef long long int ll;
 const int inf = 1e9 + 10;
 const int M = 1e9 + 7;
 using namespace std;
-int gcd(int a,int b){
+int gcd(int a,int b){//tc=> o(log(min(a,b)))
     if(a==0) return b;
     if(b==0) return a;
     if(a==b) return a;
