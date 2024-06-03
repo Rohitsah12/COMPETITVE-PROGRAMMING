@@ -52,3 +52,5 @@ class Queue :
 #Test
 
 q = Queue()
+q.push(10)
+print(q.pop())
