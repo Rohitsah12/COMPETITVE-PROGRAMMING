@@ -1,30 +1,55 @@
-#include<bits/stdc++.h>
-typedef long long int ll;
-#define endl "\n"
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-const int inf = 1e9 + 10;
-const int M = 1e9 + 7;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#define int long long
 using namespace std;
-int gcd(int a,int b){//tc=> o(log(min(a,b)))
-    if(a==0) return b;
-    if(b==0) return a;
-    if(a==b) return a;
-    if(a>b){
-        return gcd(a-b,b);
-    }
-    return gcd(a,b-a);
-}
-int lcm(int a,int b){
-    return (a*b)/gcd(a,b);
-}
-void solve(){
 
+int gcd(int a, int b) {
+    if (a == 0) return b;
+    if (b == 0) return a;
+    if (a == b) return a;
+    if (a > b) return gcd(a - b, b);
+    return gcd(a, b - a);
 }
-signed main(){
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);cout.tie(0);
-    int t; cin>>t; while(t--){
-        solve();
+
+void sol() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+
+    for (int i = 0; i < n; ++i) 
+        cin >> v[i];
+
+    int x = 1;
+
+    for (int i = 0; i < n; ++i) {
+        int y = gcd(x, v[i]);
+        y = v[i] / y;
+        x *= y;
     }
+    int sum = 0;
+    vector<int> ans;
+    for (int i = 0; i < n; ++i) {
+        sum += x / v[i];
+        ans.push_back(x / v[i]);
+    }
+
+    if (sum >= x) {
+        cout << -1 << endl;
+    } else {
+        for (int i = 0; i < n; ++i) {
+            cout << ans[i] << " ";
+        }
+        cout << endl;
+    }
+}
+
+signed main() {
+    int test;
+    cin >> test;
+    while (test--) {
+        sol();
+    }
+
+    return 0;
 }
