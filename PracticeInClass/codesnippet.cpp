@@ -6,7 +6,6 @@ typedef long long int ll;
 const int inf = 1e9 + 10;
 const int M = 1e9 + 7;
 using namespace std;
-
 void solve() {
     
 }
