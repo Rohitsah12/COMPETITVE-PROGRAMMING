@@ -31,7 +31,6 @@ signed main() {
     vector<pair<int, int>> moves;
     
     hanoi(n, 1, 3, moves);
-    
     cout << moves.size() << endl; 
     for (auto move : moves) {
         cout << move.first << " " << move.second << endl;
