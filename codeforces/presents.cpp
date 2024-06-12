@@ -19,7 +19,6 @@ std::vector<int> find_gift_givers(int n, const std::vector<int>& gifts) {
 
     return givers;
 }
-
 int main() {
     int n;
     std::cin >> n;
