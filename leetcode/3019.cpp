@@ -6,10 +6,10 @@ public:
         for (int i = 0; i < n; ++i) {
             s[i] = tolower(s[i]);
         }
-        int count_change=0;
+        int countchange=0;
         for(int i=0;i<n-1;i++ ){
-            if(s[i]!=s[i+1]) count_change++;
+            if(s[i]!=s[i+1]) countchange++;
         }
-        return count_change;
+        return countchange;
     }
 };
