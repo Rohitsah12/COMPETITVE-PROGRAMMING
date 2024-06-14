@@ -9,9 +9,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> a[i];
     }
-
     sort(a.begin(), a.end());
-
     vector<int> b(m);
     for (int i = 0; i < m; ++i) {
         cin >> b[i];
