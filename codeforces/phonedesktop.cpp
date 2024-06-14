@@ -9,16 +9,13 @@ using namespace std;
 void solve(){
     int x, y;
     cin >> x >> y;
-    
     int screens = y / 2; 
     y %= 2;  
-    x = max(0, x - screens * 7);  
-    
+    x = max(0, x - screens * 7);   
     if (y) {  
         screens++;
         x = max(0, x - 11); 
     }
-
     if (x > 0) {
         screens += (x + 14) / 15;  
     }
