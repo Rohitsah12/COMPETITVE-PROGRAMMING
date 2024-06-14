@@ -27,8 +27,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::cin >> gifts[i];
     }
-
-    std::vector<int> result = find_gift_givers(n, gifts);
+    vector<int> result = find_gift_givers(n, gifts);
 
     for (int i = 0; i < n; ++i) {
         std::cout << result[i] << " ";
