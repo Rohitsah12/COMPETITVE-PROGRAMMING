@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
-std::vector<int> find_gift_givers(int n, const std::vector<int>& gifts) {
-    std::vector<int> givers(n, 0);
+vector<int> find_gift_givers(int n, const std::vector<int>& gifts) {
+vector<int> givers(n, 0);
 //Rohit kumar sah
     for (int i = 0; i < n; ++i) {
         int friendIdx = i + 1;
@@ -28,11 +28,11 @@ int main() {
         std::cin >> gifts[i];
     }
     vector<int> result = find_gift_givers(n, gifts);
-
+//yhaan pe update
     for (int i = 0; i < n; ++i) {
         std::cout << result[i] << " ";
     }
     std::cout << std::endl;
-
+    //update
     return 0;
 }
