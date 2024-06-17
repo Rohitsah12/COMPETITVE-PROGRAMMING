@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define mod 10000000007
+const int MAX_N = 100000;
 int modu(int a){
     return (a % mod + mod) % mod;
 }
@@ -30,6 +31,33 @@ int mod_powIter(int a,int b){
     }
     return ans;
 }
+
+// primality testing by trial division in o(root(n))
+bool is_prime1(long long n){
+    int ans=true;
+    for(long long i=2;i*i<=n;i++){
+        if(n%i==0) ans=false;
+    }
+    return ans;
+}
+//Sieve of erasthothenes
+bool is_prime[MAX_N+1];
+void sieve(int n){
+    is_prime[0]=is_prime[1]=false;
+    for(int i=2;i<=n;i++){
+        is_prime[i]=true;
+    }
+    for(int i=2;i<=n;i++){
+        if(is_prime[i]){
+            for(int k=2;k*i<=n;k++){
+                is_prime[k*i]=false;
+            }
+        }
+    }
+}
 int main(){
-    cout<<modu(1e9);
+    int n;
+    cin>>n;
+    sieve(n);
+    cout<<is_prime[n];
 }
