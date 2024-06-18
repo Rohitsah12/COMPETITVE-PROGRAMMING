@@ -15,7 +15,7 @@ void sieve(ll n) {
             }
         }
     }
-}
+}  
 
 void solve(ll a) {
     for (ll i = 2; i <= a / 2; ++i) {
