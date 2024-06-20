@@ -11,39 +11,19 @@ int gcd(int a, int b) {
     if (a > b) return gcd(a - b, b);
     return gcd(a, b - a);
 }
-
-void sol() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-
-    for (int i = 0; i < n; ++i) 
-        cin >> v[i];
-
-    int x = 1;
-
-    for (int i = 0; i < n; ++i) {
-        int y = gcd(x, v[i]);
-        y = v[i] / y;
-        x *= y;
-    }
-    int sum = 0;
-    vector<int> ans;
-    for (int i = 0; i < n; ++i) {
-        sum += x / v[i];
-        ans.push_back(x / v[i]);
-    }
-
-    if (sum >= x) {
-        cout << -1 << endl;
-    } else {
-        for (int i = 0; i < n; ++i) {
-            cout << ans[i] << " ";
-        }
-        cout << endl;
-    }
+int gcd (int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd (b, a % b);
 }
-
+int gcd (int a, int b) {
+    while (b) {
+        a %= b;
+        swap(a, b);
+    }
+    return a;
+}
 signed main() {
     int test;
     cin >> test;
