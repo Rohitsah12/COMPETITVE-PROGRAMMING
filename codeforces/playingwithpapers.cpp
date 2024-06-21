@@ -21,16 +21,16 @@ using namespace std;
 
 
 void solve() {
-    ll a, b;
+    long long a, b;
     cin >> a >> b;
-    int ans = 0;
+    long long ans = 0;
     while (a > 0 && b > 0) {
         if (a >= b) {
-            ans = ans + a / b;
-            a = a % b;
+            ans += a / b;
+            a %= b;
         } else {
-            ans = ans + b / a;
-            b = b % a;
+            ans += b / a;
+            b %= a;
         }
     }
     cout << ans << "\n";
