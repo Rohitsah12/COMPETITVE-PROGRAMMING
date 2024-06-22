@@ -16,7 +16,6 @@
 #define Rohit ios_base::sync_with_stdio(false);
 #define Kumar cin.tie(NULL);
 #define Sah cout.tie(NULL);
-
 using namespace std;
 ll gcd(ll a,ll b){
     if(b==0) return a;
@@ -39,7 +38,6 @@ void solve() {
     cout<<firstmax<<" "<<secondmax;
     
 }
-
 signed main() {
     Rohit Kumar Sah
     ll t = 1;
