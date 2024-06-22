@@ -114,6 +114,7 @@ if(n>1){
     bases.push_back(n);
     powers.push_back(1);
 }
+//x^p%p=x
 int mod_div(int a,int b,int d){
     return mod_mul(a,mod_pow(b,d-2,d));
     //asssuming a*b doesnot overflow
