@@ -20,7 +20,6 @@ void sieve(ll n){
         }
     }
 }
-
 void solve() {
     ll a;
     cin>>a;
