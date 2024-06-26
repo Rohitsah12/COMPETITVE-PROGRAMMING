@@ -1,6 +1,8 @@
-void difference_array(vector<int>&arr){
-    vector<int>diff;
-    for(int i=0;i<n-1;i++){
-        diff[i]=nums[i+1]-nums[i];
+vector<int> findPrefixSums(const vector<int>& a) {
+    int n = a.size();
+    vector<int> prefixSums(n + 1, 0);
+    for (int i = 0; i < n; i++) {
+        prefixSums[i + 1] = prefixSums[i] + a[i];
     }
+    return prefixSums;
 }
