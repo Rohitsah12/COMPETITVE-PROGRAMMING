@@ -23,3 +23,53 @@ struct SegmentSumStructure {
     }
  
 };
+
+#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+vector<int> findPrefixSums(vector<int>& a) {
+    int n = a.size();
+    vector<int> prefixSums(n + 1, 0);
+    for (int i = 0; i < n; i++) {
+        prefixSums[i + 1] = prefixSums[i] + a[i];
+    }
+    return prefixSums;
+}
+ 
+vector<vector<int>> findPrefixSums2D(vector<vector<int>>& a) {
+    int n = a.size();
+    int m = a[0].size();
+    vector<vector<int>> prefixSum1D(n);
+    for (int i = 0; i < n; i++) {
+        prefixSum1D[i] = findPrefixSums(a[i]);
+    }
+    vector<vector<int>> prefixSum2D(n + 1, vector<int>(m + 1, 0));
+    for (int j = 0; j <= m; j++) {
+        for (int i = 0; i < n; i++) {
+            prefixSum2D[i + 1][j] = prefixSum2D[i][j] + prefixSum1D[i][j];
+        }
+    }
+    return prefixSum2D;
+}
+ 
+int main() {
+    int n, m;
+    cin >> n >> m;
+    vector<vector<int>> arr(n, vector<int>(m, 0));
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cin >> arr[i][j];
+        }
+    }
+    vector<vector<int>> prefixSums = findPrefixSums2D(arr);
+    int queriesNumber;
+    cin >> queriesNumber;
+    for (int i = 0; i < queriesNumber; i++) {
+        int lx, ly, rx, ry;
+        cin >> lx >> ly >> rx >> ry;
+        lx--;
+        ly--;
+        cout << prefixSums[rx][ry] - prefixSums[lx][ry] - prefixSums[rx][ly] + prefixSums[lx][ly] << '\n';
+    }
+}
