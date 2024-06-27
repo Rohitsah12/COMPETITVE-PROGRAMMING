@@ -1,3 +1,6 @@
+//prefix sum basic
+//------------------------------------------------------------------------------------------------------------------------------
+
 vector<int> findPrefixSums(const vector<int>& a) {
     int n = a.size();
     vector<int> prefixSums(n + 1, 0);
@@ -6,7 +9,8 @@ vector<int> findPrefixSums(const vector<int>& a) {
     }
     return prefixSums;
 }
-
+//prefix sum struct 
+//--------------------------------------------------------------------------------------------------------------------------------
 struct SegmentSumStructure {
     vector<int> prefixSums;
  
@@ -24,6 +28,8 @@ struct SegmentSumStructure {
  
 };
 
+//prefix sum 2d iterative
+//------------------------------------------------------------------------------------------------------------------------------------------------------
 #include <bits/stdc++.h>
  
 using namespace std;
@@ -72,4 +78,20 @@ int main() {
         ly--;
         cout << prefixSums[rx][ry] - prefixSums[lx][ry] - prefixSums[rx][ly] + prefixSums[lx][ly] << '\n';
     }
+}
+
+//prefix sum 2d recurrent
+//_------------------------------------------------------------------------------------------------------------------------------
+
+vector<vector<int>> findPrefixSums2D(vector<vector<int>>& a) {
+    int n = a.size();
+    int m = a[0].size();
+    vector<vector<int>> prefixSum(n + 1, vector<int>(m + 1, 0));
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            prefixSum[i + 1][j + 1] = prefixSum[i][j + 1]
+                + prefixSum[i + 1][j] - prefixSum[i][j] + a[i][j];
+        }
+    }
+    return prefixSum;
 }
