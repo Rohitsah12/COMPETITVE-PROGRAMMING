@@ -9,7 +9,6 @@ int main() {
         char str[100];
         scanf("%s", str);
         int x = strlen(str);
-        
         if (x > 10) {
             printf("%c%d%c\n", str[0], x - 2, str[x - 1]);
         } else {
