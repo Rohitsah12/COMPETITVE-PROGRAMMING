@@ -14,7 +14,6 @@ def is_lucky_number(num):
 def is_nearly_lucky(n):
     lucky_digit_count = count_lucky_digits(n)
     return is_lucky_number(lucky_digit_count)
-
 # Read input
 n = int(input())
 
