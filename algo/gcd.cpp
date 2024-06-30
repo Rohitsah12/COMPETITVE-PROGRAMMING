@@ -24,7 +24,6 @@ int gcd (int a, int b) {
     }
     return a;
 }
-
 int gcd(int a, int b) {
     if (!a || !b)
         return a | b;
