@@ -1,4 +1,5 @@
 #include <stdio.h>
+//Rohit kumar sha
 #include <math.h>
 int main() {
     int n, m, a;
