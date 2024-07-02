@@ -32,14 +32,27 @@ ll moduloMultiplication(ll a,ll b,ll mod){ll res = 0;a %= mod;while (b){if (b & 
 ll powermod(ll x, ll y, ll p){ll res = 1;x = x % p;if (x == 0) return 0;while (y > 0){if (y & 1)res = (res*x) % p;y = y>>1;x = (x*x) % p;}return res;}
 
 void solve(){
-    
+    ll n;
+    cin>>n;
+    vector<int>v(n);
+    for(ll i=0;i<n;i++){
+        cin>>v[i];
+    }
+    ll moves=0;
+    for(ll i=1;i<n;i++){
+        if(v[i]<v[i-1]){
+            moves+=v[i-1]-v[i];
+            v[i]=v[i-1];
+        }
+    }
+    cout<<moves;
 }
 
 signed main()
 {
     Rohit Kumar Sah
-    ll t;
-    cin >> t;
+    ll t=1;
+    // cin >> t;
     while(t--)
     {
         solve();
