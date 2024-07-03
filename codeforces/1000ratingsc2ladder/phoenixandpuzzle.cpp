@@ -31,10 +31,20 @@ bool isPerfectSquare(ll x){if (x >= 0) {ll sr = sqrt(x);return (sr * sr == x);}r
 ll moduloMultiplication(ll a,ll b,ll mod){ll res = 0;a %= mod;while (b){if (b & 1)res = (res + a) % mod;b >>= 1;a = (a * 2) % mod;}return res;}
 ll powermod(ll x, ll y, ll p){ll res = 1;x = x % p;if (x == 0) return 0;while (y > 0){if (y & 1)res = (res*x) % p;y = y>>1;x = (x*x) % p;}return res;}
 
+bool isSquare(int x){
+  int y=sqrt(x);
+  return y*y==x;
+}
+
 void solve(){
-    ll n;
-    cin>>n;
-    
+      int n;
+  cin>>n;
+  if (n%2==0 && isSquare(n/2))
+    cout<<"YES"<<endl;
+  else if (n%4==0 && isSquare(n/4))
+    cout<<"YES"<<endl;
+  else
+    cout<<"NO"<<endl;
 }
 
 signed main()
