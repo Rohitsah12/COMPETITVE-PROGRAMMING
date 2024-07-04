@@ -39,10 +39,6 @@ void solve() {
         }
     }
     cout<<tp;
-    
-    
-    
-
 }
 
 int main() {
