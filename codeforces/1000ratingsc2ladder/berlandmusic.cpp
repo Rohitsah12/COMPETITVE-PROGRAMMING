@@ -18,31 +18,76 @@
 #define Sah cout.tie(NULL);
 using namespace std;
 
-ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);}
-ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
-bool sorta(const pair<int,int> &a,const pair<int,int> &b){return (a.second < b.second);}
-bool sortd(const pair<int,int> &a,const pair<int,int> &b){return (a.second > b.second);}
-void printarr(ll arr[], ll n){fl(i,n) cout << arr[i] << " ";cout << "\n";}
-string decToBinary(int n){string s="";int i = 0;while (n > 0) {s =to_string(n % 2)+s;n = n / 2;i++;}return s;}
-ll binaryToDecimal(string n){string num = n;ll dec_value = 0;int base = 1;int len = num.length();for(int i = len - 1; i >= 0; i--){if (num[i] == '1')dec_value += base;base = base * 2;}return dec_value;}
-bool isPrime(int n){if(n<=1)return false;if(n<=3)return true;if(n%2==0||n%3==0)return false;for(int i=5;i*i<=n;i=i+6)if(n%i==0||n%(i+2)==0)return false;return true;}
-bool isPowerOfTwo(int n){if(n==0)return false;return (ceil(log2(n)) == floor(log2(n)));}
-bool isPerfectSquare(ll x){if (x >= 0) {ll sr = sqrt(x);return (sr * sr == x);}return false;}
-ll moduloMultiplication(ll a,ll b,ll mod){ll res = 0;a %= mod;while (b){if (b & 1)res = (res + a) % mod;b >>= 1;a = (a * 2) % mod;}return res;}
-ll powermod(ll x, ll y, ll p){ll res = 1;x = x % p;if (x == 0) return 0;while (y > 0){if (y & 1)res = (res*x) % p;y = y>>1;x = (x*x) % p;}return res;}
 
-void solve(){
+void solve() {
+    int n;
+        cin>>n;
+        int a[n];
+        int b[n];
+        map<int,int> map;
+        vector<int> ones;
+        vector<int> zeroes;
+        for(int i=0;i<n;i++)
+        {
+            cin>>a[i];
+            b[i]=a[i];
+            map[a[i]]=i;
+        }
+        string s;
+        cin>>s;
+ 
+        for(int i=0;i<n;i++)
+        {
+            if(s[i]=='0')
+                zeroes.push_back(a[i]);
+            else
+                ones.push_back(a[i]);
+        }
+        sort(zeroes.begin(),zeroes.end());
+        sort(ones.begin(),ones.end());
+        sort(a,a+n);
+ 
+ 
+        reverse(zeroes.begin(),zeroes.end());
+        reverse(ones.begin(),ones.end());
+        reverse(a,a+n);
+    //  for(int i=0;i<ones.size();i++)
+    //         cout<<ones[i]<<" ";
+ 
+    //     cout<<endl;
+    //     for(int i=0;i<zeroes.size();i++)
+    //         cout<<zeroes[i]<<" ";
+    //         cout<<endl;
+int i;
+            for(i=0;i<ones.size();i++)
+            {
+                b[map[ones[i]]]=a[i];
+            }
+            for(int j=0;j<zeroes.size();j++)
+            {
+                b[map[zeroes[j]]]=a[i];
+                i++;
+            }
+ 
+        for(int i=0;i<n;i++)
+            cout<<b[i]<<" ";
+            cout<<endl;
     
+    
+    
+    
+
 }
 
-signed main()
-{
-    Rohit Kumar Sah
+int main() {
+   Rohit Kumar Sah
+    
+    // ll t = 1;
     ll t;
-    cin >> t;
-    while(t--)
-    {
+    cin>>t;
+    while (t--) {
         solve();
     }
+    
     return 0;
 }
