@@ -51,13 +51,6 @@ void solve() {
         reverse(zeroes.begin(),zeroes.end());
         reverse(ones.begin(),ones.end());
         reverse(a,a+n);
-    //  for(int i=0;i<ones.size();i++)
-    //         cout<<ones[i]<<" ";
- 
-    //     cout<<endl;
-    //     for(int i=0;i<zeroes.size();i++)
-    //         cout<<zeroes[i]<<" ";
-    //         cout<<endl;
 int i;
             for(i=0;i<ones.size();i++)
             {
