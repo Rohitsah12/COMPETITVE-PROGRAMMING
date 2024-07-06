@@ -48,7 +48,6 @@ void solve(){
     else 
         cout << -1 << endl;
 }
-
 signed main(){
     Rohit Kumar Sah
     ll t;
