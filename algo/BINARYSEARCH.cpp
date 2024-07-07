@@ -33,9 +33,14 @@ ll powermod(ll x, ll y, ll p){ll res = 1;x = x % p;if (x == 0) return 0;while (y
 ll x;
 ll n;
 ll arr[1000000];
-
+//lower bound
 bool check(ll mid){
     if(arr[mid]>=x) return true;
+    else return false; 
+}
+//upper bound
+bool check(ll mid){
+    if(arr[mid]>x) return true;
     else return false; 
 }
 void solve(){
