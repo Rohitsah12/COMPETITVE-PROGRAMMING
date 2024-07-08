@@ -130,6 +130,8 @@ bool check(ll mid)
         else
         {
             num_painter_spawned += 1;
+            if (num_painter_spawned > k)
+                return false;
             last_painter_time_left = mid;
             if (last_painter_time_left >= arr[i])
             {
@@ -141,6 +143,7 @@ bool check(ll mid)
             }
         }
     }
+    return true;
 }
 void solve()
 {
