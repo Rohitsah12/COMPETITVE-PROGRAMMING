@@ -35,6 +35,7 @@ void solve(){
     ll n,x,y;
     cin>>n>>x>>y;
     vector<int>v(n);
+    fl(i,n) cin>>v[i];
     
 }
 
