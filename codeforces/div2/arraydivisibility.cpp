@@ -37,7 +37,6 @@ void solve(){
     fl(i,n) cout<<i<<" ";
     cout<<endl;
 }
-
 signed main()
 {
     Rohit Kumar Sah
