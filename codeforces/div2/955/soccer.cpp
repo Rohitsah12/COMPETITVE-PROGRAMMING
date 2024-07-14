@@ -37,7 +37,6 @@ void solve(){
     cin>>x1>>y1;
     cin>>x2>>y2;
 }
-
 signed main()
 {
     Rohit Kumar Sah
