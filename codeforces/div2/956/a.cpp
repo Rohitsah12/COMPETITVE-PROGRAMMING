@@ -21,26 +21,27 @@
 using namespace std;
 
 
+void splitSequence(int n, int k) {
+    vector<int> seq;
+    seq.push_back(n);
+    int splits = 0;
+    while (seq.size() < n) {
+        int largest = seq.back();
+        seq.pop_back();
+        for (int i = 0; i < min(k - 1, largest - 1); ++i) {
+            seq.push_back(1);
+        }
+        seq.push_back(largest - k + 1);
+        splits++;
+    }
+    cout << splits << endl;
+}
+
 void solve() {
     int n, k;
     cin >> n >> k;
-
-    vector<int> c;
-    c.push_back(n);
-    int d = 0;
-    while (c.size() < n) {
-        int e = *max_element(c.begin(), c.end());
-        c.erase(remove(c.begin(), c.end(), e), c.end());
-        int f = min(k, e);
-        for (int g = 0; g < f; ++g) {
-            c.push_back(e / f);
-        }
-        c.back() += e % f;
-        d++;
-    }
-    cout << d << endl;
+    splitSequence(n, k);
 }
-
 signed main() {
     Rohit Kumar Sah
     int t;
