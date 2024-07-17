@@ -31,7 +31,27 @@ bool isPerfectSquare(ll x){if (x >= 0) {ll sr = sqrt(x);return (sr * sr == x);}r
 ll moduloMultiplication(ll a,ll b,ll mod){ll res = 0;a %= mod;while (b){if (b & 1)res = (res + a) % mod;b >>= 1;a = (a * 2) % mod;}return res;}
 ll powermod(ll x, ll y, ll p){ll res = 1;x = x % p;if (x == 0) return 0;while (y > 0){if (y & 1)res = (res*x) % p;y = y>>1;x = (x*x) % p;}return res;}
 void solve(){
-    
+    ll r,c;
+    cin>>r>>c;
+    ll a=max(r,c);
+    ll diagonal=a*a-(a-1);
+    if(r==c) cout<<diagonal<<endl;
+    else if(r>c){
+        if(r%2!=0){
+            cout<<diagonal-(r-c)<<endl;
+        }
+        else{
+            cout<<diagonal+(r-c)<<endl;
+        }
+    }
+    else if(r<c){
+        if(c%2!=0){
+            cout<<diagonal+(c-r)<<endl;
+        }
+        else{
+            cout<<diagonal-(c-r)<<endl;
+        }
+    }
 }
 
 signed main()
