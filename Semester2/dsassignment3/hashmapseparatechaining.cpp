@@ -122,6 +122,6 @@ int main() {
     a->find(4);  
     a->find(23); 
 
-    delete a;
+
     return 0;
 }
