@@ -69,5 +69,22 @@
     "shared_mutex": "cpp",
     "thread": "cpp",
     "typeindex": "cpp"
-  }
+  },
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "db.relational-data.org",
+      "port": 3306,
+      "driver": "MariaDB",
+      "name": "Assignment",
+      "database": "tpcds",
+      "username": "guest",
+      "password": "relational",
+      "connectionTimeout": 30
+    }
+  ]
 }
